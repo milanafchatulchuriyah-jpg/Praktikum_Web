@@ -3,36 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman HTML Sederhana</title>
+    <title>Menu Restoran Pasta & Spaghetti</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f5f0;
             color: #333;
+            padding: 40px 20px;
+        }
+
+        .header {
             text-align: center;
-            padding: 50px;
+            margin-bottom: 40px;
         }
-        h1 {
-            color: #2c3e50;
+
+        .header h1 {
+            color: #8b0000;
+            font-size: 2.5em;
+            margin-bottom: 8px;
         }
-        p {
+
+        .header p {
+            color: #666;
+            font-style: italic;
             font-size: 1.1em;
         }
+
         .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .menu-card {
             background-color: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            display: inline-block;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .menu-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-content {
+            padding: 20px;
+        }
+
+        .menu-title {
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .menu-description {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            height: 40px; /* Menjaga tinggi agar sejajar */
+        }
+
+        .menu-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 12px;
+        }
+
+        .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #d9534f;
+        }
+
+        .btn-order {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .btn-order:hover {
+            background-color: #219150;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Tangani Krisis Iklim, Turunkan Biaya Hidup!</h1>
-        <p>Bencana Makin Parah, Hidup Makin Susah</p>
-        <p>Apa Kerja Pemerintah?</p>
+        <header class="header">
+            <h1>La Pasta Deliziosa</h1>
+            <p>Cita Rasa Autentik Pasta Italia Spesial Untuk Anda</p>
+        </header>
+
+        <div class="menu-grid">
+            <!-- Menu 1 -->
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80" alt="Spaghetti Bolognese" class="menu-img">
+                <div class="menu-content">
+                    <h2 class="menu-title">Spaghetti Bolognese</h2>
+                    <p class="menu-description">Spaghetti dengan saus daging sapi cincang khas Italia dan taburan keju parmesan.</p>
+                    <div class="menu-footer">
+                        <span class="price">Rp 45.000</span>
+                        <button class="btn-order">Pesan</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu 2 -->
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1612874742237-6526221588e3?auto=format&fit=crop&w=600&q=80" alt="Spaghetti Carbonara" class="menu-img">
+                <div class="menu-content">
+                    <h2 class="menu-title">Spaghetti Carbonara</h2>
+                    <p class="menu-description">Saus krim yang kaya rasa dengan potongan smoked beef, telur, dan keju melimpah.</p>
+                    <div class="menu-footer">
+                        <span class="price">Rp 48.000</span>
+                        <button class="btn-order">Pesan</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu 3 -->
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80" alt="Spaghetti Aglio e Olio" class="menu-img">
+                <div class="menu-content">
+                    <h2 class="menu-title">Spaghetti Aglio e Olio</h2>
+                    <p class="menu-description">Sajian klasik tumisan bawang putih, minyak zaitun, cabai kering, dan udang segar.</p>
+                    <div class="menu-footer">
+                        <span class="price">Rp 42.000</span>
+                        <button class="btn-order">Pesan</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu 4 -->
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1621996346565-e3def646d959?auto=format&fit=crop&w=600&q=80" alt="Penne Arrabbiata" class="menu-img">
+                <div class="menu-content">
+                    <h2 class="menu-title">Penne Arrabbiata</h2>
+                    <p class="menu-description">Pasta penne dengan saus tomat pedas, daun basil segar, dan sentuhan minyak zaitun.</p>
+                    <div class="menu-footer">
+                        <span class="price">Rp 40.000</span>
+                        <button class="btn-order">Pesan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>
