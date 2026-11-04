@@ -1,181 +1,1101 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Restoran Pasta & Spaghetti</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spastaghetti | Italian Pasta Experience</title>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f5f0;
-            color: #333;
-            padding: 40px 20px;
-        }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
 
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+:root {
+    --primary: #8b1e16;
+    --secondary: #c43d2d;
+    --cream: #fbf7ef;
+    --dark: #29231f;
+    --muted: #77716b;
+    --gold: #d7a34a;
+}
 
-        .header h1 {
-            color: #8b0000;
-            font-size: 2.5em;
-            margin-bottom: 8px;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
 
-        .header p {
-            color: #666;
-            font-style: italic;
-            font-size: 1.1em;
-        }
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+}
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
 
-        .menu-card {
-            background-color: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+/* NAVBAR */
+.navbar {
+    height: 80px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(251,247,239,.96);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #eee6dc;
+}
 
-        .menu-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-        }
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    font-weight: 800;
+    color: var(--primary);
+}
 
-        .menu-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
+.logo span {
+    color: var(--gold);
+}
 
-        .menu-content {
-            padding: 20px;
-        }
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
 
-        .menu-title {
-            font-size: 1.3em;
-            color: #2c3e50;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
+.nav-links a {
+    font-size: 14px;
+    font-weight: 600;
+    transition: .3s;
+}
 
-        .menu-description {
-            font-size: 0.9em;
-            color: #666;
-            line-height: 1.4;
-            margin-bottom: 15px;
-            height: 40px; /* Menjaga tinggi agar sejajar */
-        }
+.nav-links a:hover {
+    color: var(--secondary);
+}
 
-        .menu-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #eee;
-            padding-top: 12px;
-        }
+.nav-order {
+    background: var(--primary);
+    color: white !important;
+    padding: 12px 22px;
+    border-radius: 30px;
+}
 
-        .price {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #d9534f;
-        }
+.menu-toggle {
+    display: none;
+    border: 0;
+    background: none;
+    font-size: 27px;
+}
 
-        .btn-order {
-            background-color: #27ae60;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background 0.2s;
-        }
+/* HERO */
+.hero {
+    min-height: 590px;
+    display: flex;
+    align-items: center;
+    padding: 70px 8%;
+    background: #f2e7d8;
+    gap: 40px;
+}
 
-        .btn-order:hover {
-            background-color: #219150;
-        }
-    </style>
+.hero-content {
+    flex: 1;
+}
+
+.eyebrow {
+    color: var(--secondary);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 5vw, 65px);
+    line-height: 1.12;
+    color: var(--primary);
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero p {
+    color: #69615b;
+    line-height: 1.8;
+    max-width: 480px;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 15px 28px;
+    border-radius: 30px;
+    font-weight: 700;
+    border: none;
+    transition: .3s;
+}
+
+.btn-primary:hover {
+    background: var(--secondary);
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    display: inline-block;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 14px 25px;
+    border-radius: 30px;
+    margin-left: 10px;
+    font-weight: 700;
+}
+
+.hero-image {
+    flex: 1;
+    min-width: 0;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 410px;
+    object-fit: cover;
+    border-radius: 180px 180px 20px 20px;
+    box-shadow: 0 20px 40px #0002;
+}
+
+/* GENERAL SECTION */
+section {
+    padding: 85px 8%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading small {
+    color: var(--secondary);
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.section-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    margin: 12px 0;
+    color: var(--primary);
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* CATEGORY */
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.category-btn {
+    border: 1px solid #e5d7c9;
+    background: white;
+    padding: 11px 22px;
+    border-radius: 30px;
+    font-weight: 600;
+    color: var(--dark);
+    transition: .3s;
+}
+
+.category-btn.active,
+.category-btn:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* SEARCH */
+.search-box {
+    max-width: 420px;
+    margin: 0 auto 35px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 30px;
+    border: 1px solid #e2d6c9;
+    background: white;
+    outline: none;
+    font-family: inherit;
+}
+
+/* MENU */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.menu-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px #0000000b;
+    transition: .3s;
+}
+
+.menu-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 25px #00000018;
+}
+
+.menu-img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.menu-content {
+    padding: 20px;
+}
+
+.menu-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.menu-content p {
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--muted);
+    min-height: 62px;
+}
+
+.menu-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 17px;
+}
+
+.price {
+    color: var(--primary);
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.add-btn {
+    background: var(--primary);
+    border: none;
+    color: white;
+    padding: 9px 15px;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.add-btn:hover {
+    background: var(--secondary);
+}
+
+/* ORDER CALCULATOR */
+.order-section {
+    background: #eee3d4;
+}
+
+.order-wrapper {
+    max-width: 750px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px #0000000c;
+}
+
+.order-wrapper h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 17px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item small {
+    display: block;
+    color: var(--muted);
+    margin-top: 5px;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity button {
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 50%;
+    background: #f2e7d8;
+    font-weight: 800;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0;
+    font-size: 21px;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.empty-cart {
+    text-align: center;
+    color: var(--muted);
+    padding: 25px;
+}
+
+/* FEATURES */
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.feature-card {
+    background: white;
+    text-align: center;
+    padding: 35px 25px;
+    border-radius: 15px;
+    border: 1px solid #eee5dc;
+}
+
+.feature-icon {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* ABOUT */
+.about {
+    background: #f2e7d8;
+    display: flex;
+    align-items: center;
+    gap: 55px;
+}
+
+.about-image,
+.about-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.about-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.about-content h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary);
+    font-size: 36px;
+    margin: 15px 0;
+}
+
+.about-content p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* TESTIMONIAL */
+.testimonials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.testimonial-card {
+    padding: 28px;
+    background: white;
+    border-radius: 15px;
+    border: 1px solid #eee5dc;
+}
+
+.stars {
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+.testimonial-card p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--muted);
+}
+
+.testimonial-card h4 {
+    margin-top: 18px;
+    color: var(--primary);
+}
+
+/* CONTACT */
+.contact {
+    background: #eee3d4;
+}
+
+.contact-wrapper {
+    max-width: 650px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+}
+
+.contact-wrapper input,
+.contact-wrapper textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border: 1px solid #e4ddd4;
+    border-radius: 8px;
+    font-family: inherit;
+    outline-color: var(--gold);
+}
+
+.contact-wrapper textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+/* FOOTER */
+footer {
+    background: #29231f;
+    color: white;
+    padding: 55px 8% 25px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+
+.footer-content h3 {
+    font-family: 'Playfair Display', serif;
+    color: #e3b45f;
+    margin-bottom: 15px;
+}
+
+.footer-content p,
+.footer-content a {
+    color: #ccc;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.copyright {
+    border-top: 1px solid #ffffff20;
+    text-align: center;
+    padding-top: 22px;
+    color: #aaa;
+    font-size: 12px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 1000px) {
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 700px) {
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--cream);
+        padding: 25px;
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 60px 6%;
+        text-align: center;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-image img {
+        height: 300px;
+    }
+
+    section {
+        padding: 65px 6%;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features,
+    .testimonials {
+        grid-template-columns: 1fr;
+    }
+
+    .about {
+        flex-direction: column;
+    }
+
+    .about-content h2 {
+        font-size: 30px;
+    }
+
+    .order-wrapper,
+    .contact-wrapper {
+        padding: 22px;
+    }
+
+    .btn-outline {
+        margin: 12px 0 0;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <div class="container">
-        <header class="header">
-            <h1>Spastaghetti</h1>
-            <p>Cita Rasa Autentik Pasta Spesial Yang Bisa Disesuaikan Dengan Level Atau Selera Lidah Anda. </p>
-        </header>
+<!-- NAVBAR -->
+<nav class="navbar">
+    <a href="#" class="logo">Spa<span>staghetti.</span></a>
 
-        <div class="menu-grid">
-            <!-- Menu 1 -->
-            <div class="menu-card">
-                <img src="https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/easy_spaghetti_bolognese_93639_16x9.jpg" alt="Spaghetti Bolognese" class="menu-img">
-                <div class="menu-content">
-                    <h2 class="menu-title">Spaghetti Beef Bolognese</h2>
-                    <p class="menu-description">Spaghetti saus bolognese dengan daging sapi cincang khas Italia dan topping keju parut.</p>
-                    <div class="menu-footer">
-                        <span class="price">Rp 25.000</span>
-                        <button class="btn-order">Pesan</button>
-                    </div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+    <div class="nav-links" id="navLinks">
+        <a href="#home">Beranda</a>
+        <a href="#menu">Menu Kami</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#testimoni">Testimoni</a>
+        <a href="#contact">Kontak</a>
+        <a href="#order" class="nav-order">Pesan Sekarang</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+    <div class="hero-content">
+        <div class="eyebrow">WELCOME TO SPASTAGHETTI</div>
+
+        <h1>
+            Delicious Pasta,<br>
+            <span>Happy Moments.</span>
+        </h1>
+
+        <p>
+            Nikmati kelezatan pasta dengan cita rasa spesial.
+            Pilih menu favoritmu dan sesuaikan level pedas
+            sesuai selera lidahmu!
+        </p>
+
+        <a href="#menu" class="btn-primary">Jelajahi Menu →</a>
+        <a href="#about" class="btn-outline">Tentang Kami</a>
+    </div>
+
+    <div class="hero-image">
+        <img src="https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/easy_spaghetti_bolognese_93639_16x9.jpg"
+        alt="Spaghetti Bolognese">
+    </div>
+</header>
+
+<!-- MENU -->
+<section id="menu">
+    <div class="section-heading">
+        <small>OUR SPECIAL MENU</small>
+        <h2>Explore Our Pasta</h2>
+        <p>Pilihan pasta spesial yang dibuat untuk memanjakan lidahmu.</p>
+    </div>
+
+    <div class="categories">
+        <button class="category-btn active" onclick="filterMenu('all',this)">Semua Menu</button>
+        <button class="category-btn" onclick="filterMenu('creamy',this)">Creamy</button>
+        <button class="category-btn" onclick="filterMenu('savory',this)">Savory</button>
+        <button class="category-btn" onclick="filterMenu('cheese',this)">Cheese</button>
+    </div>
+
+    <div class="search-box">
+        <input type="text" id="searchMenu"
+        placeholder="🔍 Cari menu favoritmu..." oninput="searchMenu()">
+    </div>
+
+    <div class="menu-grid" id="menuGrid">
+
+        <article class="menu-card" data-category="savory">
+            <img class="menu-img"
+            src="https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/easy_spaghetti_bolognese_93639_16x9.jpg"
+            alt="Spaghetti Beef Bolognese">
+
+            <div class="menu-content">
+                <h3>Spaghetti Beef Bolognese</h3>
+                <p>Saus bolognese dengan daging sapi cincang khas Italia dan topping keju parut.</p>
+                <div class="menu-bottom">
+                    <span class="price">Rp 25.000</span>
+                    <button class="add-btn" onclick="addToCart('Spaghetti Beef Bolognese',25000)">+ Pesan</button>
                 </div>
             </div>
+        </article>
 
-            <!-- Menu 2 -->
-            <div class="menu-card">
-                <img src="https://www.modernhoney.com/wp-content/uploads/2026/01/Best-Alfredo-Sauce-15.jpg" alt="Spaghetti Carbonara" class="menu-img">
-                <div class="menu-content">
-                    <h2 class="menu-title">Spaghetti Creammy Alfredo</h2>
-                    <p class="menu-description">Saus dari perpaduan susu full cream dan keju dengan potongan smoked beef, sosis sapi dan topping keju parut.</p>
-                    <div class="menu-footer">
-                        <span class="price">Rp 25.000</span>
-                        <button class="btn-order">Pesan</button>
-                    </div>
+        <article class="menu-card" data-category="creamy">
+            <img class="menu-img"
+            src="https://www.modernhoney.com/wp-content/uploads/2026/01/Best-Alfredo-Sauce-15.jpg"
+            alt="Spaghetti Creamy Alfredo">
+
+            <div class="menu-content">
+                <h3>Spaghetti Creamy Alfredo</h3>
+                <p>Perpaduan susu full cream, keju, smoked beef, sosis sapi dan keju parut.</p>
+                <div class="menu-bottom">
+                    <span class="price">Rp 25.000</span>
+                    <button class="add-btn" onclick="addToCart('Spaghetti Creamy Alfredo',25000)">+ Pesan</button>
                 </div>
             </div>
+        </article>
 
-            <!-- Menu 3 -->
-            <div class="menu-card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc-SahUkRg6_ThBsjxNodtLZJuNySLXMnp0SqXHnNpKFCXtW28GZ3ntHD3&s=10" alt="Spaghetti Aglio e Olio" class="menu-img">
-                <div class="menu-content">
-                    <h2 class="menu-title">Spaghetti Aglio e Olio</h2>
-                    <p class="menu-description">Sajian klasik tumisan bawang putih, cabai kering, dan sosis sapi.</p>
-                    <div class="menu-footer">
-                        <span class="price">Rp 20.000</span>
-                        <button class="btn-order">Pesan</button>
-                    </div>
+        <article class="menu-card" data-category="savory">
+            <img class="menu-img"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc-SahUkRg6_ThBsjxNodtLZJuNySLXMnp0SqXHnNpKFCXtW28GZ3ntHD3&s=10"
+            alt="Spaghetti Aglio e Olio">
+
+            <div class="menu-content">
+                <h3>Spaghetti Aglio e Olio</h3>
+                <p>Sajian klasik tumisan bawang putih, cabai kering dan sosis sapi.</p>
+                <div class="menu-bottom">
+                    <span class="price">Rp 20.000</span>
+                    <button class="add-btn" onclick="addToCart('Spaghetti Aglio e Olio',20000)">+ Pesan</button>
                 </div>
             </div>
+        </article>
 
-            <!-- Menu 4 -->
-            <div class="menu-card">
-                <img src="https://images.squarespace-cdn.com/content/v1/554d5698e4b0e4053a33b9e5/1615490695404-HX1M5PWND540VVJQA1W2/Roasted+Red+Pepper+Goat+Cheese+Pasta.JPG" alt="Penne Arrabbiata" class="menu-img">
-                <div class="menu-content">
-                    <h2 class="menu-title">Spaghetti Pepper Cheese</h2>
-                    <p class="menu-description">Spaghetti saus keju dengan taburan black pepper dengan potongan smoked beef, sosis sapi dan topping keju parut.</p>
-                    <div class="menu-footer">
-                        <span class="price">Rp 25.000</span>
-                        <button class="btn-order">Pesan</button>
-                    </div>
+        <article class="menu-card" data-category="cheese">
+            <img class="menu-img"
+            src="https://images.squarespace-cdn.com/content/v1/554d5698e4b0e4053a33b9e5/1615490695404-HX1M5PWND540VVJQA1W2/Roasted+Red+Pepper+Goat+Cheese+Pasta.JPG"
+            alt="Spaghetti Pepper Cheese">
+
+            <div class="menu-content">
+                <h3>Spaghetti Pepper Cheese</h3>
+                <p>Saus keju dengan taburan black pepper, smoked beef, sosis dan keju parut.</p>
+                <div class="menu-bottom">
+                    <span class="price">Rp 25.000</span>
+                    <button class="add-btn" onclick="addToCart('Spaghetti Pepper Cheese',25000)">+ Pesan</button>
                 </div>
             </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- ORDER CALCULATOR -->
+<section class="order-section" id="order">
+    <div class="section-heading">
+        <small>ORDER CALCULATOR</small>
+        <h2>Pesanan Anda</h2>
+        <p>Pilih menu, atur jumlah, dan lihat total pembayaran.</p>
+    </div>
+
+    <div class="order-wrapper">
+        <h3>🛒 Keranjang Pesanan</h3>
+
+        <div id="cartItems">
+            <div class="empty-cart">Keranjang masih kosong. Yuk pilih pasta favoritmu!</div>
+        </div>
+
+        <div class="total">
+            <span>Total Harga</span>
+            <span id="totalPrice">Rp 0</span>
+        </div>
+
+        <button class="btn-primary" style="width:100%"
+        onclick="checkout()">
+            Pesan Melalui WhatsApp →
+        </button>
+    </div>
+</section>
+
+<!-- WHY US -->
+<section id="features">
+    <div class="section-heading">
+        <small>WHY CHOOSE US</small>
+        <h2>Kenapa Spastaghetti?</h2>
+        <p>Lebih dari sekadar pasta, kami menghadirkan pengalaman rasa.</p>
+    </div>
+
+    <div class="features">
+        <div class="feature-card">
+            <div class="feature-icon">🍝</div>
+            <h3>Bahan Berkualitas</h3>
+            <p>Menggunakan bahan pilihan untuk menghasilkan pasta yang lezat dan berkualitas.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">🌶️</div>
+            <h3>Level Sesuai Selera</h3>
+            <p>Bebas menentukan tingkat kepedasan sesuai selera lidah masing-masing.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">❤️</div>
+            <h3>Dibuat dengan Cinta</h3>
+            <p>Setiap sajian dibuat dengan perhatian terhadap rasa dan kepuasan pelanggan.</p>
         </div>
     </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=1000"
+        alt="Pasta Spastaghetti">
+    </div>
+
+    <div class="about-content">
+        <div class="eyebrow">OUR STORY</div>
+
+        <h2>Good Food, Great Mood!</h2>
+
+        <p>
+            Spastaghetti hadir untuk memberikan pengalaman menikmati
+            pasta dengan harga terjangkau dan rasa yang istimewa.
+            Kami percaya bahwa makanan lezat tidak harus mahal.
+        </p>
+
+        <br>
+
+        <p>
+            Dengan pilihan saus yang beragam dan tingkat kepedasan
+            yang bisa disesuaikan, setiap pelanggan dapat menikmati
+            pasta sesuai selera masing-masing.
+        </p>
+
+        <br>
+
+        <a href="#menu" class="btn-primary">Temukan Menu Kami</a>
+    </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section id="testimoni">
+    <div class="section-heading">
+        <small>HAPPY CUSTOMERS</small>
+        <h2>Apa Kata Mereka?</h2>
+        <p>Pengalaman pelanggan menikmati Spastaghetti.</p>
+    </div>
+
+    <div class="testimonials">
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Rasanya enak banget! Saus creamy-nya berasa dan porsinya cocok untuk harga segini."</p>
+            <h4>— Pelanggan Spastaghetti</h4>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Suka banget karena level pedasnya bisa disesuaikan. Jadi bisa pilih sesuai selera."</p>
+            <h4>— Pelanggan Spastaghetti</h4>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Harga ramah mahasiswa, pilihan menunya menarik. Bakal pesan lagi!"</p>
+            <h4>— Pelanggan Spastaghetti</h4>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <div class="section-heading">
+        <small>GET IN TOUCH</small>
+        <h2>Hubungi Kami</h2>
+        <p>Punya pertanyaan atau ingin melakukan pemesanan?</p>
+    </div>
+
+    <div class="contact-wrapper">
+        <form onsubmit="sendContact(event)">
+            <input type="text" id="customerName"
+            placeholder="Nama lengkap" required>
+
+            <input type="text" id="customerPhone"
+            placeholder="Nomor WhatsApp" required>
+
+            <textarea id="customerMessage"
+            placeholder="Tuliskan pesan Anda..." required></textarea>
+
+            <button type="submit" class="btn-primary" style="width:100%">
+                Kirim Pesan →
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div>
+            <h3>Spastaghetti.</h3>
+            <p>Delicious Pasta, Happy Moments.</p>
+            <p>Cita rasa spesial sesuai selera Anda.</p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <p><a href="#home">Beranda</a></p>
+            <p><a href="#menu">Menu Kami</a></p>
+            <p><a href="#about">Tentang Kami</a></p>
+            <p><a href="#contact">Kontak</a></p>
+        </div>
+
+        <div>
+            <h3>Contact Information</h3>
+            <p>WhatsApp: 08xxxxxxxxxx</p>
+            <p>Instagram: @spastaghetti</p>
+            <p>Lokasi: Tembalang, Semarang</p>
+        </div>
+    </div>
+
+    <div class="copyright">
+        © 2026 Spastaghetti. All Rights Reserved.
+    </div>
+</footer>
+
+<script>
+
+// GANTI DENGAN NOMOR WHATSAPP USAHA
+const whatsappNumber = "6281234567890";
+
+// MOBILE NAVBAR
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("show");
+}
+
+// FILTER MENU
+function filterMenu(category, button) {
+    document.querySelectorAll(".category-btn").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    document.querySelectorAll(".menu-card").forEach(card => {
+        const match = category === "all" ||
+                      card.dataset.category === category;
+
+        card.style.display = match ? "block" : "none";
+    });
+
+    document.getElementById("searchMenu").value = "";
+}
+
+// SEARCH MENU
+function searchMenu() {
+    const keyword = document.getElementById("searchMenu")
+        .value.toLowerCase();
+
+    document.querySelectorAll(".menu-card").forEach(card => {
+        const name = card.querySelector("h3").textContent.toLowerCase();
+
+        card.style.display = name.includes(keyword) ? "block" : "none";
+    });
+
+    document.querySelectorAll(".category-btn").forEach(btn => {
+        btn.classList.remove("active");
+    });
+}
+
+// CART
+let cart = [];
+
+function addToCart(name, price) {
+    const existing = cart.find(item => item.name === name);
+
+    if (existing) {
+        existing.quantity++;
+    } else {
+        cart.push({
+            name: name,
+            price: price,
+            quantity: 1
+        });
+    }
+
+    renderCart();
+
+    alert(name + " berhasil ditambahkan ke keranjang!");
+}
+
+function changeQuantity(index, amount) {
+    cart[index].quantity += amount;
+
+    if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+    }
+
+    renderCart();
+}
+
+function formatRupiah(number) {
+    return "Rp " + number.toLocaleString("id-ID");
+}
+
+function renderCart() {
+    const cartItems = document.getElementById("cartItems");
+    const totalPrice = document.getElementById("totalPrice");
+
+    if (cart.length === 0) {
+        cartItems.innerHTML =
+            '<div class="empty-cart">Keranjang masih kosong. Yuk pilih pasta favoritmu!</div>';
+
+        totalPrice.textContent = "Rp 0";
+        return;
+    }
+
+    let total = 0;
+
+    cartItems.innerHTML = cart.map((item, index) => {
+        total += item.price * item.quantity;
+
+        return `
+            <div class="cart-item">
+                <div>
+                    <strong>${item.name}</strong>
+                    <small>${formatRupiah(item.price)}</small>
+                </div>
+
+                <div class="quantity">
+                    <button onclick="changeQuantity(${index},-1)">-</button>
+                    <strong>${item.quantity}</strong>
+                    <button onclick="changeQuantity(${index},1)">+</button>
+                </div>
+            </div>
+        `;
+    }).join("");
+
+    totalPrice.textContent = formatRupiah(total);
+}
+
+// CHECKOUT WHATSAPP
+function checkout() {
+    if (cart.length === 0) {
+        alert("Silakan pilih menu terlebih dahulu!");
+        return;
+    }
+
+    let total = 0;
+
+    let message = "Halo Spastaghetti! Saya ingin memesan:\n\n";
+
+    cart.forEach(item => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        message +=
+            item.name + "\n" +
+            item.quantity + " x " +
+            formatRupiah(item.price) + " = " +
+            formatRupiah(subtotal) + "\n\n";
+    });
+
+    message += "Total Pesanan: " + formatRupiah(total);
+    message += "\n\nMohon konfirmasi pesanan saya. Terima kasih!";
+
+    const url = "https://wa.me/" + whatsappNumber +
+        "?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
+}
+
+// CONTACT FORM
+function sendContact(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("customerName").value;
+    const phone = document.getElementById("customerPhone").value;
+    const message = document.getElementById("customerMessage").value;
+
+    const text =
+        "Halo Spastaghetti!\n\n" +
+        "Nama: " + name + "\n" +
+        "Nomor WhatsApp: " + phone + "\n" +
+        "Pesan: " + message;
+
+    window.open(
+        "https://wa.me/" + whatsappNumber +
+        "?text=" + encodeURIComponent(text),
+        "_blank"
+    );
+}
+
+</script>
 
 </body>
 </html>
