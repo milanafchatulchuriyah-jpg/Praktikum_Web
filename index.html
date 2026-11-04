@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -630,7 +629,7 @@ footer {
 
 <!-- NAVBAR -->
 <nav class="navbar">
-    <a href="#" class="logo">Spa<span>staghetti.</span></a>
+    <a href="#" class="logo">Spasta<span>ghetti.</span></a>
 
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
@@ -729,7 +728,7 @@ footer {
 
             <div class="menu-content">
                 <h3>Spaghetti Aglio e Olio</h3>
-                <p>Sajian klasik tumisan bawang putih, cabai kering dan sosis sapi.</p>
+                <p>Sajian klasik dari tumisan bawang putih, cabai kering dan sosis sapi perpaduan sederhana, namun kaya rasa.</p>
                 <div class="menu-bottom">
                     <span class="price">Rp 20.000</span>
                     <button class="add-btn" onclick="addToCart('Spaghetti Aglio e Olio',20000)">+ Pesan</button>
@@ -917,9 +916,9 @@ footer {
 
         <div>
             <h3>Contact Information</h3>
-            <p>WhatsApp: 08xxxxxxxxxx</p>
+            <p>WhatsApp: 085157988747</p>
             <p>Instagram: @spastaghetti</p>
-            <p>Lokasi: Tembalang, Semarang</p>
+            <p>Lokasi: Jalan Gondang Timur V, Tembalang, Semarang</p>
         </div>
     </div>
 
@@ -930,8 +929,8 @@ footer {
 
 <script>
 
-// GANTI DENGAN NOMOR WHATSAPP USAHA
-const whatsappNumber = "6281234567890";
+// NOMOR WHATSAPP USAHA
+const whatsappNumber = "6285157988747";
 
 // MOBILE NAVBAR
 function toggleMenu() {
@@ -1068,7 +1067,7 @@ function checkout() {
     message += "Total Pesanan: " + formatRupiah(total);
     message += "\n\nMohon konfirmasi pesanan saya. Terima kasih!";
 
-    const url = "https://wa.me/" + whatsappNumber +
+    const url = "https://wa.me//085157988747/" + whatsappNumber +
         "?text=" + encodeURIComponent(message);
 
     window.open(url, "_blank");
@@ -1089,7 +1088,7 @@ function sendContact(event) {
         "Pesan: " + message;
 
     window.open(
-        "https://wa.me/" + whatsappNumber +
+        "https://wa.me//085157988747/" + whatsappNumber +
         "?text=" + encodeURIComponent(text),
         "_blank"
     );
